@@ -443,7 +443,6 @@ class STAR(torch.nn.Module):
             if framenum == 0:
                 temporal_input_embedded = self.dropout_in(self.relu(self.input_embedding_layer_temporal(nodes_current)))
             else:
-                temporal_input_embedded = self.dropout_in(self.relu(self.input_embedding_layer_temporal(nodes_current)))
                 # 避免计算图破坏
                 temporal_input_embedded = torch.cat((GM[:framenum, node_index], temporal_input_embedded[framenum:]), dim=0)
 
